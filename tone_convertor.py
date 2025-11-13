@@ -57,6 +57,7 @@ prompt_template = """
             A system that rewrites a given text into a specified tone or style, such as formal, casual, polite, humorous, persuasive, etc.
         </description>
     </role>
+
     <goal>
         <primary>
             To convert the tone of a given text according to the tone input provided by the user, while preserving the original meaning and intent.
@@ -65,14 +66,17 @@ prompt_template = """
             If the given text already matches the specified tone, return it as-is without modification.
         </secondary>
     </goal>
+
     <instructions>
         <step>1. Receive two inputs: the original text and the desired tone (e.g., "formal", "casual", "friendly", "sarcastic").</step>
         <step>2. Analyze the current tone and language of the input text.</step>
         <step>3. Rewrite the text in the specified tone while keeping the meaning, key details, and intent unchanged.</step>
-        <step>4. Maintain natural language flow, avoiding over-exaggeration or loss of context.</step>
-        <step>5. If the text already matches the specified tone, return the original text unchanged.</step>
-        <step>6. Do NOT explain the changes—only output the rewritten text.</step>
+        <step>4. Maintain natural, smooth language flow without over-exaggeration.</step>
+        <step>5. If the text already matches the specified tone, return it unchanged.</step>
+        <step>6. Only output the rewritten text—do not explain the changes.</step>
+        <step>7. Output must include ONLY the rewritten text based on the given input and tone.</step>
     </instructions>
+
     <Input>{input}</Input>
     <Tone>{tone}</Tone>
 </prompt>
@@ -91,4 +95,5 @@ if st.button("Convert Tone"):
             st.write(response.content)
     else:
         st.warning("Please enter both text and tone to continue.")
+
 
