@@ -1,6 +1,5 @@
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
-from dotenv import load_dotenv
 import streamlit as st
 import os
 tones = [
@@ -46,7 +45,6 @@ tones = [
     "grateful"
 ]
 tones = [t.title() for t in tones]
-load_dotenv()
 st.set_page_config(page_title="Language Tone Converter", page_icon="🎨")
 st.title("🎨 Language Tone Converter")
 input_text = st.text_area("Enter text to rewrite:", height=150)
@@ -93,3 +91,4 @@ if st.button("Convert Tone"):
             st.write(response.content)
     else:
         st.warning("Please enter both text and tone to continue.")
+
