@@ -74,6 +74,7 @@ prompt_template = """
 
     <output_format>
         Input: {input}
+        
         Output: [rewritten text here]
     </output_format>
 
@@ -95,6 +96,7 @@ if st.button("Convert Tone"):
             st.write(response.content)
     else:
         st.warning("Please enter both text and tone to continue.")
+
 
 
 
